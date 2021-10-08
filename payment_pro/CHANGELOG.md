@@ -1,5 +1,15 @@
 Osclass Payments Pro
 ====================
+##version 5.1.0 - 09/10/2021
+
+* Add stripe strong customer authentication payment module
+* Add bootstrap icon to admin menu
+* Change all payment modules to use bootstrap button in place of image
+* Fix missing invoice when paid from wallet
+* Add bulkactions column to datatable for mobile layout
+* Add user id, email and tx id criteria to invoice retrieval
+* Add link to bank history from transaction log
+* Fix all status selection for data tables
 
 ##version 3.4.0 - 18/07/2017
 
