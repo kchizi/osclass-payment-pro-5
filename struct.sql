@@ -1,4 +1,4 @@
-CREATE TABLE  oc_t_payment_pro_invoice (
+CREATE TABLE  /*TABLE_PREFIX*/t_payment_pro_invoice (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   dt_date DATETIME NOT NULL ,
   s_code VARCHAR( 255 ) NOT NULL ,
@@ -17,7 +17,7 @@ CREATE TABLE  oc_t_payment_pro_invoice (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
 
-CREATE TABLE  oc_t_payment_pro_invoice_row (
+CREATE TABLE  /*TABLE_PREFIX*/t_payment_pro_invoice_row (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   fk_i_invoice_id INT NOT NULL,
   s_concept VARCHAR( 200 ) NOT NULL ,
@@ -31,10 +31,10 @@ CREATE TABLE  oc_t_payment_pro_invoice_row (
 
 
   PRIMARY KEY(pk_i_id),
-  FOREIGN KEY (fk_i_invoice_id) REFERENCES oc_t_payment_pro_invoice (pk_i_id)
+  FOREIGN KEY (fk_i_invoice_id) REFERENCES /*TABLE_PREFIX*/t_payment_pro_invoice (pk_i_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE  oc_t_payment_pro_pending_row (
+CREATE TABLE  /*TABLE_PREFIX*/t_payment_pro_pending_row (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   s_code char(40) NOT NULL,
   dt_date DATETIME NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE  oc_t_payment_pro_pending_row (
   INDEX idx_s_code (s_code)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE  oc_t_payment_pro_invoice_extra (
+CREATE TABLE  /*TABLE_PREFIX*/t_payment_pro_invoice_extra (
   fk_s_pending_code char(40) NOT NULL,
   fk_i_invoice_id INT(11) NULL,
   s_source VARCHAR( 10 ) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE  oc_t_payment_pro_invoice_extra (
   INDEX idx_fk_s_pending_code (fk_s_pending_code)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE  oc_t_payment_pro_subscription (
+CREATE TABLE  /*TABLE_PREFIX*/t_payment_pro_subscription (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   s_code char(40) NOT NULL,
   dt_date DATETIME NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE  oc_t_payment_pro_subscription (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
 
-CREATE TABLE oc_t_payment_pro_wallet (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_wallet (
     fk_i_user_id INT UNSIGNED NOT NULL,
     i_amount BIGINT(20) NULL,
 
@@ -99,7 +99,7 @@ CREATE TABLE oc_t_payment_pro_wallet (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
 
-CREATE TABLE oc_t_payment_pro_packs (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_packs (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   i_amount_cost BIGINT(20) NULL ,
   i_amount BIGINT(20) NULL ,
@@ -108,27 +108,27 @@ CREATE TABLE oc_t_payment_pro_packs (
   PRIMARY KEY (pk_i_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE oc_t_payment_pro_premium (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_premium (
     fk_i_item_id INT UNSIGNED NOT NULL,
     dt_date DATETIME NOT NULL ,
     dt_expiration_date DATETIME NOT NULL ,
     fk_i_invoice_id INT NOT NULL,
 
         PRIMARY KEY (fk_i_item_id),
-        FOREIGN KEY (fk_i_invoice_id) REFERENCES oc_t_payment_pro_invoice (pk_i_id)
+        FOREIGN KEY (fk_i_invoice_id) REFERENCES /*TABLE_PREFIX*/t_payment_pro_invoice (pk_i_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE oc_t_payment_pro_highlight (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_highlight (
     fk_i_item_id INT UNSIGNED NOT NULL,
     dt_date DATETIME NOT NULL ,
     dt_expiration_date DATETIME NOT NULL ,
     fk_i_invoice_id INT NOT NULL,
 
         PRIMARY KEY (fk_i_item_id),
-        FOREIGN KEY (fk_i_invoice_id) REFERENCES oc_t_payment_pro_invoice (pk_i_id)
+        FOREIGN KEY (fk_i_invoice_id) REFERENCES /*TABLE_PREFIX*/t_payment_pro_invoice (pk_i_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE oc_t_payment_pro_publish (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_publish (
     fk_i_item_id INT UNSIGNED NOT NULL,
     dt_date DATETIME NOT NULL ,
     b_paid BOOLEAN NOT NULL DEFAULT FALSE,
@@ -138,7 +138,7 @@ CREATE TABLE oc_t_payment_pro_publish (
         PRIMARY KEY (fk_i_item_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE oc_t_payment_pro_prices (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_prices (
   fk_i_category_id INT UNSIGNED NOT NULL,
   i_publish_cost BIGINT(20) NULL ,
   i_premium_cost BIGINT(20) NULL ,
@@ -151,7 +151,7 @@ CREATE TABLE oc_t_payment_pro_prices (
   PRIMARY KEY (fk_i_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET 'UTF8' COLLATE 'UTF8_GENERAL_CI';
 
-CREATE TABLE oc_t_payment_pro_mail_queue (
+CREATE TABLE /*TABLE_PREFIX*/t_payment_pro_mail_queue (
   pk_i_id INT NOT NULL AUTO_INCREMENT ,
   dt_send_date DATETIME NOT NULL ,
   fk_i_item_id INT NULL ,
