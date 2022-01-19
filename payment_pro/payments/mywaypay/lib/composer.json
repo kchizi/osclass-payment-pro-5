@@ -1,0 +1,36 @@
+{
+  "name": "mywaypay/mywaypay-php",
+  "description": "mywaypay PHP Library",
+  "keywords": [
+    "mywaypay",
+    "payment processing",
+    "api"
+  ],
+  "homepage": "https://mywaypay.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mywaypay and contributors",
+      "homepage": "https://github.com/mywaypay/mywaypay-php/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "satooshi/php-coveralls": "~0.6.1",
+    "squizlabs/php_codesniffer": "~2.0"
+  },
+  "autoload": {
+    "psr-4": { "mywaypay\\" : "lib/" }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0-dev"
+    }
+  }
+}
