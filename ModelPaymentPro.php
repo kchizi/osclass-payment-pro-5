@@ -111,7 +111,7 @@
             osc_set_preference('pay_per_post', '0', 'payment_pro', 'BOOLEAN');
             osc_set_preference('premium_days', '7', 'payment_pro', 'INTEGER');
             osc_set_preference('top_hours', '168', 'payment_pro', 'INTEGER');
-            osc_set_preference('currency', 'USD', 'payment_pro', 'STRING');
+            osc_set_preference('currency', 'KES', 'payment_pro', 'STRING');
             osc_set_preference('default_highlight_cost', '1.0', 'payment_pro', 'STRING');
             osc_set_preference('allow_highlight', '0', 'payment_pro', 'BOOLEAN');
             osc_set_preference('allow_wallet', '0', 'payment_pro', 'BOOLEAN');
