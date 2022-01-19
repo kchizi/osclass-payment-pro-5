@@ -278,7 +278,7 @@ function payment_pro_disable_item($id) {
 function payment_pro_load_styles() {
     if(!OC_ADMIN) {
         //osc_register_style('bootstrap-icons', osc_assets_url('bootstrap-icons/bootstrap-icons.css?v='.OSCLASS_VERSION));
-        osc_enqueue_style('bootstrap-icons');
+        osc_enqueue_style('bootstrap-icons',osc_assets_url('bootstrap-icons/bootstrap-icons.css?v='.OSCLASS_VERSION));
         $payment_pro_theme_css = osc_current_web_theme();
         if(file_exists(PAYMENT_PRO_PATH . "styles/" . $payment_pro_theme_css . ".css")) {
             osc_enqueue_style('payment-pro-style-' . $payment_pro_theme_css, PAYMENT_PRO_URL . "styles/" . $payment_pro_theme_css . ".css");
